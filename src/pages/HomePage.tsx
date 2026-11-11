@@ -118,7 +118,14 @@ const HomePage = () => {
         </div>
         {/* 2nd layer Add Task */}
         <div className="w-full h-[91px] bg-slate-100 flex justify-center gap-4 items-center">
-          <input type="text" className="todo-input" placeholder="Add a new task..." value={isAddTodoText} onChange={(e) => setIsAddTodoText(e.target.value)} />
+          <input 
+          type="text" 
+          className="todo-input" 
+          placeholder="Add a new task..." 
+          value={isAddTodoText} 
+          onChange={(e) => setIsAddTodoText(e.target.value)} 
+          onKeyDown={(e) => e.key === "Enter" && saveToLocalStorage(isAddTodoText)}
+          />
           <button className="add-btn flex items-center justify-center pe-1" onClick={() => saveToLocalStorage(isAddTodoText)}><IoIosAdd className="w-7 h-7" />Add</button>
         </div>
         {/* 3rd layer filter btns */}
