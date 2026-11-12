@@ -8,11 +8,11 @@
 
 @layer components {
   .outer-card {
-    @apply flex flex-col items-center justify-center h-screen;
+    @apply flex flex-col items-center justify-center h-screen py-10;
   }
 
   .inner-card {
-    @apply max-h-[647px] min-w-[547px] bg-[#F8FAFC] flex flex-col rounded-2xl overflow-hidden;
+    @apply min-w-[547px] w-[547px] bg-[#F8FAFC] flex flex-col rounded-2xl overflow-hidden;
   }
   h1 {
     @apply text-4xl font-bold text-white;
@@ -42,7 +42,7 @@
   }
 
   .todo-list-card {
-    @apply max-w-full h-12 bg-teal-100 my-0.5 text-xl font-semibold px-2 flex items-center text-center justify-between;
+    @apply max-w-full h-fit bg-teal-100 my-0.5 text-xl font-semibold px-2 flex items-center text-center justify-between;
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;

@@ -140,7 +140,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="w-full h-[286px] bg-inherit scroll-smooth overflow-scroll no-scrollbar">
-          <div className="flex flex-col items-center justify-center mx-1 my-1">{
+          <div className="flex flex-col items-center justify-center mx-3 my-1">{
             isList ? (<TodoList
               tasks={filteredTask}
               onToggleTask={handleToggleTask}

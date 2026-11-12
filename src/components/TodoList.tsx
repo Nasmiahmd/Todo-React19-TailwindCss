@@ -21,7 +21,7 @@ const TodoList = ({ tasks, onToggleTask, onDeleteTask, onEditTask }: TodoListPro
         <div className="w-full flex flex-col gap-2 overflow-y-auto px-2">
             {tasks.map((task, index) =>
                 <div key={index} className="todo-list-card flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border border-gray-100 w-full">
-                    <h3 className={`${task.completed ? "line-through text-gray-400" : "text-gray-700"}`}>
+                    <h3 className={`${task.completed ? "line-through text-gray-400" : "text-gray-700"} break-words max-w-[340px]`}>
                         {task.text}
                     </h3>
 
