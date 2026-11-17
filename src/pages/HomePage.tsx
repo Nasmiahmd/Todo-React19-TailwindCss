@@ -95,6 +95,12 @@ const HomePage = () => {
     }
   }
 
+  const handleSelectedDeleteTask = () => {
+    const updatedList = data.filter(item => !item.completed);
+    setData(updatedList);
+    localStorage.setItem("todoList", JSON.stringify(updatedList));
+  }
+
   const filteredTask = data.filter(task => {
     if (isClicked == "two") return !task.completed
     if (isClicked == "three") return task.completed
@@ -118,13 +124,13 @@ const HomePage = () => {
         </div>
         {/* 2nd layer Add Task */}
         <div className="w-full h-[91px] bg-slate-100 flex justify-center gap-4 items-center">
-          <input 
-          type="text" 
-          className="todo-input" 
-          placeholder="Add a new task..." 
-          value={isAddTodoText} 
-          onChange={(e) => setIsAddTodoText(e.target.value)} 
-          onKeyDown={(e) => e.key === "Enter" && saveToLocalStorage(isAddTodoText)}
+          <input
+            type="text"
+            className="todo-input"
+            placeholder="Add a new task..."
+            value={isAddTodoText}
+            onChange={(e) => setIsAddTodoText(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && saveToLocalStorage(isAddTodoText)}
           />
           <button className="add-btn flex items-center justify-center pe-1" onClick={() => saveToLocalStorage(isAddTodoText)}><IoIosAdd className="w-7 h-7" />Add</button>
         </div>
@@ -134,6 +140,11 @@ const HomePage = () => {
             <button onClick={() => setIsClicked('one')} className={`${isClicked == 'one' ? 'clicked' : 'not-clicked'}`}>All</button>
             <button onClick={() => setIsClicked('two')} className={`${isClicked == 'two' ? 'clicked' : 'not-clicked'}`}>Active</button>
             <button onClick={() => setIsClicked('three')} className={`${isClicked == 'three' ? 'clicked' : 'not-clicked'}`}>Completed</button>
+          </div>
+          <div>
+            <button onClick={handleSelectedDeleteTask} className="delete-btns">
+              {data.length !== data.filter(item => item.completed).length ? "Delete Selected only" : "Delete all"}
+            </button>
           </div>
           <div>
             <p className="text-slate-400">{activeTodo()} {activeTodo() > 1 ? "tasks left" : "task left"}</p>
